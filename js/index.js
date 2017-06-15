@@ -1,5 +1,6 @@
 
 
-function get (){
+function get () {
     console.log(123456)
+
 }
