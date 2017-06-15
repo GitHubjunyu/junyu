@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>努力该怎么写</title>
+    <style>
+        canvas{
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+<canvas></canvas>
+<script>
+    var can = document.querySelector("canvas");
+    var cas = can.getContext("2d");
+    can.width = 600;
+    can.height = 600;
+
+    //设置矩形的宽高
+    var H = 50;
+    var W = 50;
+    //设置矩形的起点
+    var x = 0;
+    var y = 0;
+    //设置步长
+    var step = 5;
+    var itemOut = setInterval(function(){
+        //每次时钟运行,先清除整个画布
+        cas.clearRect(0,0,can.width,can.height);
+
+        cas.strokeRect(x,y,H,W);
+        //坐标点每次时钟加加
+        x+=step;
+        y+=step;
+        //判断坐标到达位置停止时钟
+        if(x > can.width-W || y > can.height-H){
+            clearInterval(itemOut);
+        }
+
+        cas.stroke();
+    },30)
+
+    //原理:通过不断的刷新画布,改变矩形的的坐标,快速的刷新,就会出现
+    //矩形移动的现象
+
+
+</script>
+</body>
+</html>
